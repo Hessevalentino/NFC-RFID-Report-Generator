@@ -1,0 +1,101 @@
+/* NFC/RFID Report Generator - Print CSS */
+
+@media print {
+    /* Základní nastavení pro tisk */
+    body {
+        font-family: Arial, sans-serif;
+        font-size: 12pt;
+        line-height: 1.5;
+        background: white;
+        color: black;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Skrytí nepotřebných prvků */
+    button, .no-print, nav, footer {
+        display: none !important;
+    }
+    
+    /* Nastavení velikosti stránky */
+    @page {
+        size: A4;
+        margin: 2cm;
+    }
+    
+    /* Styly pro nadpisy */
+    h1 {
+        font-size: 18pt;
+        margin-bottom: 20pt;
+        text-align: center;
+        color: #000;
+    }
+    
+    h2 {
+        font-size: 14pt;
+        margin-top: 15pt;
+        margin-bottom: 10pt;
+        page-break-after: avoid;
+        background-color: #f1f5f9;
+        padding: 5pt;
+    }
+    
+    /* Styly pro tabulky */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10pt 0;
+        page-break-inside: avoid;
+    }
+    
+    table, th, td {
+        border: 1px solid #000;
+    }
+    
+    th {
+        background-color: #f1f5f9;
+        font-weight: bold;
+        text-align: left;
+        padding: 5pt;
+    }
+    
+    td {
+        padding: 5pt;
+    }
+    
+    /* Styly pro sekce */
+    .section {
+        margin-bottom: 15pt;
+        page-break-inside: avoid;
+    }
+    
+    /* Zápatí stránky */
+    .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        font-size: 9pt;
+        text-align: center;
+        border-top: 1pt solid #000;
+        padding-top: 5pt;
+    }
+    
+    /* Čísla stránek */
+    .page-number:after {
+        content: counter(page);
+    }
+    
+    /* Zabránění zalomení stránky uvnitř důležitých prvků */
+    p, h3, h4, h5, h6 {
+        page-break-inside: avoid;
+    }
+    
+    /* Zalomení stránky před novými sekcemi */
+    h2 {
+        page-break-before: always;
+    }
+    
+    h2:first-of-type {
+        page-break-before: avoid;
+    }
+}
